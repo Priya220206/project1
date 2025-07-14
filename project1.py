@@ -29,7 +29,7 @@ def about_model():
     st.divider()
     st.subheader("Checkout the sidebar for more➡️")
 
-df = pd.read_csv("project/predictive_maintenance.csv")
+df = pd.read_csv("predictive_maintenance.csv")
 feature_cols = [c for c in df.columns if c not in [ "Failure Type",'Product ID','Type','Target']]
 X = df[feature_cols]
 y = df["Target"]
@@ -109,8 +109,8 @@ def prediction_model():
             ConfusionMatrixDisplay.from_estimator(pipeline, X_test, y_test)
 
 pg = st.navigation([
-  st.Page(about_model, title="About The Model"),
-  st.Page(dataset_visualisation, title="Dataset Visualization"),
-  st.Page(prediction_model, title="Let's Predict Machine Failure"),
+    st.Page(about_model, title="About The Model"),
+    st.Page(dataset_visualisation, title="Dataset Visualization"),
+    st.Page(prediction_model, title="Let's Predict Machine Failure"),
 ])
 pg.run()
